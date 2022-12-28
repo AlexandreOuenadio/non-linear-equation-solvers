@@ -18,7 +18,11 @@ mid = (a+b)/2 # Midpoint of the interval
 # Tolerance for the solution
 eps = 0.001
 
-while not abs(b-a) < eps:
+# Max number of iteration in case it does not converge
+MAX_ITERATIONS = 50
+nb_iterations = 0
+
+while not abs(b-a) < eps and nb_iterations < MAX_ITERATIONS:
     if g(a)*g(mid) < 0:
         b = mid 
     elif g(mid)*g(b) < 0: 
@@ -27,8 +31,14 @@ while not abs(b-a) < eps:
         print(f"There is no solution in the interval [a={a},b={b}].")
         break
     mid = (a+b)/2
+    nb_iterations += 1
 
-print(f"\nSolution: x = {mid} (tolerance = {eps})\n")
+if nb_iterations == MAX_ITERATIONS:
+    print("THE ALGORITHM DOES NOT CONVERGE TO A SOLUTION")
+else:
+    print(f"\nTHE ALGORITHM CONVERGES TO A SOLUTION ({nb_iterations} iterations) \nand the solution is: x = {mid} (tolerance = {eps})\n")
+
+
     
 
 

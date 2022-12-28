@@ -3,8 +3,8 @@
 
 # PARAMETERS: 
 # y - Enter any real number you want
-y = 4 # For example 15
-# f(x) - Enter your function expression (must be a continuous function between a and b)
+y = 15 # For example 15
+# f(x) - Enter your function expression (must be a continuous function between x0 and x1)
 f = lambda x : x**2 # For example, f(x) = x^2 so we want to solve x^2 = 15 (the square root of 15)
 
 #-------- SECANT METHOD --------
