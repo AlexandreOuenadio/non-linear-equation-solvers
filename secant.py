@@ -1,5 +1,6 @@
 # DESCRIPTION:
 # This algorithm finds a solution (x) for the equation f(x) = y using the secant method.
+# It generally converges more quickly than the bisection method. 
 
 # PARAMETERS: 
 # y - Enter any real number you want
@@ -19,12 +20,20 @@ x2 = x0 - g(x0)*(x1-x0)/(g(x1)-g(x0))
 # Tolerance for the solution
 eps = 0.001
 
-while not abs(g(x2)) < eps:
+# Max number of iteration in case it does not converge
+MAX_ITERATIONS = 50
+nb_iterations = 0
+
+while not abs(g(x2)) < eps and nb_iterations < MAX_ITERATIONS:
     x2 = x0 - g(x0)*(x1-x0)/(g(x1)-g(x0)) 
     x0 = x1
     x1 = x2
-
-print(f"\nSolution: x = {x2} (tolerance = {eps})\n")
+    nb_iterations += 1
+    
+if nb_iterations == MAX_ITERATIONS:
+    print("THE ALGORITHM DOES NOT CONVERGE TO A SOLUTION")
+else:
+    print(f"\nTHE ALGORITHM CONVERGES TO A SOLUTION ({nb_iterations} iterations) \nand the solution is: x = {x2} (tolerance = {eps})\n")
     
 
 
