@@ -20,7 +20,7 @@ x2 = x0 - g(x0)*(x1-x0)/(g(x1)-g(x0))
 # Tolerance for the solution
 eps = 0.001
 
-# Max number of iteration in case it does not converge
+# Max number of iterations in case it does not converge
 MAX_ITERATIONS = 50
 nb_iterations = 0
 
